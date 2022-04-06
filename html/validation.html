@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function myfun(){
+            var correct_way = /^[A-Za-z]+$/;
+            var a = document.getElementById('fname').value;
+            if(a==""){
+                document.getElementById('Message').innerHTML="Please Enter your first name";
+                return false;
+            }
+            if( a.length<3) {
+                document.getElementById('Message').innerHTML="First Name should be of min. 3 charaters";
+                return false; 
+            }
+            if(a.length>15 ){
+                document.getElementById('Message').innerHTML="First Name should be of max. 15 charaters";
+                return false; 
+            }
+            if(!a.match(correct_way)){
+                    document.getElementById('Message').innerHTML="Only Alphabets are allowed";
+                return false; 
+            }
+            return true;;
+            
+        }
+    </script>
+    <form onsubmit="return myfun()" action="">
+        first Name: <input type="text" value="" id="fname">
+        <span id="Message"></span>
+        <div class="w-100"></div>
+        <div class="w-100"></div>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
